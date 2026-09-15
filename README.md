@@ -1,1 +1,1 @@
-# mercantilismoeindigenas
+https://danielcronem.github.io/mercantilismoeindigenas/
