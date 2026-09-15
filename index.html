@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#7bd3ff"
+    >
+
+    <title>Arco do Conhecimento</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+</head>
+
+<body>
+
+<main class="game-shell">
+
+    <canvas
+        id="gameCanvas"
+        aria-label="Jogo de arco e flecha"
+    ></canvas>
+
+
+    <section
+        class="hud hud-left"
+        aria-live="polite"
+    >
+
+        <div class="hud-card">
+            <span class="hud-label">
+                PONTOS
+            </span>
+
+            <strong id="scoreValue">
+                0
+            </strong>
+        </div>
+
+
+        <div class="hud-card">
+            <span class="hud-label">
+                FLECHAS
+            </span>
+
+            <strong id="arrowsValue">
+                10
+            </strong>
+        </div>
+
+
+        <div class="hud-card best-card">
+            <span class="hud-label">
+                RECORDE
+            </span>
+
+            <strong id="bestValue">
+                0
+            </strong>
+        </div>
+
+    </section>
+
+
+    <section class="hud hud-right">
+
+        <button
+            id="restartBtn"
+            class="game-btn"
+            type="button"
+        >
+            Reiniciar
+        </button>
+
+    </section>
+
+
+    <section
+        class="aim-panel"
+        aria-live="polite"
+    >
+
+        <div class="status-line">
+
+            <span id="statusText">
+                Puxe a corda para trás e solte para atirar.
+            </span>
+
+        </div>
+
+
+        <div class="meter-row">
+
+            <span>
+                FORÇA
+            </span>
+
+
+            <div class="power-track">
+
+                <div
+                    id="powerFill"
+                    class="power-fill"
+                ></div>
+
+            </div>
+
+
+            <strong id="powerText">
+                0%
+            </strong>
+
+        </div>
+
+
+        <div class="hint">
+
+            Mouse ou toque, clique perto do arco,
+            arraste para trás e solte.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- MODAL DA PERGUNTA -->
+
+    <section
+        id="questionModal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="questionTitle"
+    >
+
+        <div class="modal-card">
+
+            <div class="modal-badge">
+                ACERTO CONFIRMADO
+            </div>
+
+
+            <h2 id="questionTitle">
+                Pergunta
+            </h2>
+
+
+            <p id="questionText"></p>
+
+
+            <div
+                id="answers"
+                class="answers"
+            ></div>
+
+
+            <div
+                id="feedback"
+                class="feedback hidden"
+            ></div>
+
+
+            <button
+                id="continueBtn"
+                class="continue-btn hidden"
+                type="button"
+            >
+                Próximo disparo
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- MODAL FINAL -->
+
+    <section
+        id="endModal"
+        class="modal hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="endTitle"
+    >
+
+        <div class="modal-card end-card">
+
+            <div class="modal-badge">
+                FIM DA RODADA
+            </div>
+
+
+            <h2 id="endTitle">
+                Suas flechas acabaram!
+            </h2>
+
+
+            <p id="endSummary"></p>
+
+
+            <button
+                id="playAgainBtn"
+                class="continue-btn"
+                type="button"
+            >
+                Jogar novamente
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script
+    src="script.js"
+    defer
+></script>
+
+</body>
+</html>
